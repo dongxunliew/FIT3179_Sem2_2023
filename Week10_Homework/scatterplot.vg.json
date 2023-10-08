@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 500,
     "height": 400,
-    "title": "How does a country's GDP per capita relate to happiness?",
+    "title": "How Does A Country's GDP per Capita Relate to Happiness?",
     "data": {
     "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/Week10_Homework/WHR_2023.csv"
     },
@@ -46,33 +46,30 @@
         },
         {
             "mark": {
-                "type": "text",
-                "align": "right",
-                "baseline": "middle",
-                "dx": 12,
-                "fontSize": 11.5,
-                "fontStyle": "italic"
+                "type": "rule",
+                "color": "blue",
+                "strokeDash": [5]
             },
             "encoding": {
                 "x": {
+                    "aggregate": "mean",
                     "field": "gdp_per_capita",
-                    "type": "quantitative",
-                    "title": "GDP Per Capita"
-                    },
-                    "y": {
+                    "type": "quantitative"
+                    }
+            }
+        },
+        {
+            "mark": {
+                "type": "rule",
+                "color": "blue",
+                "strokeDash": [5]
+            },
+            "encoding": {
+                "y": {
+                    "aggregate": "mean",
                     "field": "happiness_score",
-                    "type": "quantitative",
-                    "title": "Happiness Score"
-                    },
-                "text": {"field": "country", "type": "nominal"},
-                "color": {"value": "black"},
-                "opacity": {
-                    "condition": {
-                        "test": "datum['country'] == 'Malaysia'",
-                        "value": 1
-                    },
-                    "value": 0
-                }
+                    "type": "quantitative"
+                    }
             }
         }
     ]
