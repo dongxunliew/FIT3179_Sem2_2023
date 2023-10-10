@@ -1,0 +1,33 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/data/happiness_2015_2023.csv"
+    },
+    "transform": [
+      {
+        "window": [
+          {"op": "rank", "as": "rank"}
+        ],
+        "sort": [{"field": "happiness_score", "order": "descending"}],
+        "groupby": ["year"]
+      },
+      {
+        "filter": "(datum.rank <= 10)"
+      }
+    ],
+    "mark": {
+      "type": "line",
+      "point": true
+    },
+    "encoding": {
+      "x": {"field": "year", "type": "ordinal"},
+      "y": {"field": "rank", "type": "quantitative", "sort": "descending"},
+      "color": {"field": "country", "type": "nominal"},
+      "detail": {"field": "country", "type": "nominal"},
+      "tooltip": [
+        {"field": "country", "type": "nominal"},
+        {"field": "happiness_score", "type": "quantitative"}
+      ]
+    }
+  }
+  
