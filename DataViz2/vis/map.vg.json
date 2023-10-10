@@ -35,8 +35,6 @@
           "mark": {"type": "geoshape", "fill": null, "stroke":"lightgray"}
       },
 
-
-
       {
           "data": {
               "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/vis/ne_110m_countries.json",
@@ -87,7 +85,12 @@
               "color": {
                 "field": "happiness_score",
                 "type": "quantitative",
-                "scale": {"type": "log", "range": ["#e5f5f9", "#99d8c9", "#2ca25f"]}
+                "scale": {
+                  "type": "log",
+                  "domain": [2, 8],
+                  "range": ["#e5f5f9", "#99d8c9", "#2ca25f"]
+                },
+                "legend": {"format": ".4s"}
               },
               "tooltip": [
                 {"field": "country", "type": "nominal", "title": "Country"},
