@@ -42,7 +42,7 @@
                   "lookup": "properties.NAME",
                   "from": {
                     "data": {
-                      "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/Week9_Homework/WHR_2023.csv"
+                      "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/data/WHR_2023.csv"
                     },
                     "key": "country",
                     "fields": ["happiness_score"]
