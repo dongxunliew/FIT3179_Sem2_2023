@@ -1,11 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 400,
-    "title": "How Does A Country's GDP per Capita Relate to Happiness?",
     "data": {
     "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/data/WHR_2023.csv"
     },
+    "width": "container",
     "layer": [
         {
             "selection": {
