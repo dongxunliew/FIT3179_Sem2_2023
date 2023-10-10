@@ -42,7 +42,21 @@
               "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/vis/ne_110m_countries.json",
               "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
           },
-            "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "#757575", "strokeWidth": 1}
+          "transform": [
+            {
+              "calculate": "'Data is not available in ' + datum.properties.NAME + ' for the year ' + year_selection + '.'",
+              "as": "note"
+            }
+          ],
+            "mark": {
+              "type": "geoshape",
+              "fill": "lightgray",
+              "stroke": "#757575",
+              "strokeWidth": 1
+            },
+            "encoding": {
+              "tooltip": {"field": "note"}
+            }
       },
 
       {
@@ -61,9 +75,7 @@
                 },
                 "as": "geo"
               },
-              {"calculate": "datum.happiness_score", "as": "Happiness Score"},
               {"filter": "datum.year == year_selection"}
-
             ],
             "mark": {
                 "type": "geoshape",
@@ -73,13 +85,13 @@
             "encoding": {
               "shape": {"field": "geo", "type": "geojson"},
               "color": {
-                "field": "Happiness Score",
+                "field": "happiness_score",
                 "type": "quantitative",
                 "scale": {"type": "log", "range": ["#e5f5f9", "#99d8c9", "#2ca25f"]}
               },
               "tooltip": [
-                {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-                {"field": "Happiness Score", "type": "quantitative"}
+                {"field": "country", "type": "nominal", "title": "Country"},
+                {"field": "happiness_score", "type": "quantitative", "title": "Happiness Score"}
               ]
             }
       }
