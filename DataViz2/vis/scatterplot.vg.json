@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "How Does A Country's GDP per Capita Relate to Happiness?",
+    "data": {
+    "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/data/WHR_2023.csv"
+    },
+    "layer": [
+        {
+            "selection": {
+                "region_highlight": {
+                    "type": "multi",
+                    "fields": ["region"],
+                    "bind": "legend"
+                }
+            },
+            "mark": "circle",
+            "encoding": {
+                "x": {
+                "field": "gdp_per_capita",
+                "type": "quantitative",
+                "title": "GDP Per Capita"
+                },
+                "y": {
+                "field": "happiness_score",
+                "type": "quantitative",
+                "title": "Happiness Score"
+                },
+                "color": {
+                "field": "region",
+                "type": "nominal",
+                "title": "Region"
+                },
+                "opacity": {
+                    "condition": {"selection": "region_highlight", "value": 1},
+                    "value": 0.1
+                },
+                "tooltip": [
+                    {"field": "country", "type": "nominal", "title": "Country"},
+                    {"field": "region", "type": "nominal", "title": "Region"},
+                    {"field": "happiness_score", "type": "quantitative", "title": "Happiness Score"},
+                    {"field": "gdp_per_capita", "type": "quantitative", "title": "GDP Per Capita"}
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "rule",
+                "color": "blue",
+                "strokeDash": [5]
+            },
+            "encoding": {
+                "x": {
+                    "aggregate": "mean",
+                    "field": "gdp_per_capita",
+                    "type": "quantitative"
+                    }
+            }
+        },
+        {
+            "mark": {
+                "type": "rule",
+                "color": "blue",
+                "strokeDash": [5]
+            },
+            "encoding": {
+                "y": {
+                    "aggregate": "mean",
+                    "field": "happiness_score",
+                    "type": "quantitative"
+                    }
+            }
+        }
+    ]
+}
