@@ -19,10 +19,10 @@
     ],
     "mark": {
       "type": "line",
-      "point": true
+      "point": {"size": 150}
     },
     "encoding": {
-      "x": {"field": "year", "type": "ordinal"},
+      "x": {"field": "year", "type": "ordinal", "axis": {"labelAngle": 0} },
       "y": {"field": "rank", "type": "quantitative", "sort": "descending"},
       "color": {"field": "country", "type": "nominal"},
       "detail": {"field": "country", "type": "nominal"},
