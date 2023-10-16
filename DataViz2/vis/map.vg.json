@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Happiness Score by Country",
+  "title": {
+    "text": "Happiness Score of each Country",
+    "fontSize": 20
+  },
   "width": 900,
   "height": 500,
   "params": [
@@ -86,19 +89,22 @@
                 "field": "happiness_score",
                 "type": "quantitative",
                 "scale": {
-                  "type": "log",
-                  "domain": [2, 8],
-                  "range": ["#e5f5f9", "#99d8c9", "#2ca25f"]
+                  "type": "threshold",
+                  "domain": [2,3,4,5,6,7],
+                  "range": ["#edf8fb", "#ccece6", "#99d8c9", "#66c2a4", "#41ae76", "#238b45", "#005824"]
                 },
-                "legend": {"format": ".4s"}
+                "legend": {
+                  "format": ".1s",
+                   "title": "Happiness Score"
+                  }
               },
               "tooltip": [
                 {"field": "country", "type": "nominal", "title": "Country"},
-                {"field": "happiness_score", "type": "quantitative", "title": "Happiness Score"}
+                {"field": "happiness_score", "type": "quantitative", "title": "Happiness Score", "format": ".2f"}
               ]
             }
       }
-
-  ]
+  ],
+  "config": {"view": {"stroke": null}}
  
 }
