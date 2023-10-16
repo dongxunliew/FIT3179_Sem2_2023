@@ -1,0 +1,70 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 300,
+    "data": {"url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/data/WHR_2023.csv"},
+    "transform": [
+      {
+        "aggregate": [{"op": "mean", "field": "happiness_score", "as": "mean_happiness_score"}],
+        "groupby": ["region"]
+      }
+    ],
+    "layer": [
+      {
+        "mark": {
+          "type": "rule",
+          "size": 2
+        },
+        "encoding": {
+          "y": {
+            "field": "region",
+            "type": "ordinal",
+            "sort": {"field": "mean_happiness_score", "order": "descending"}
+          },
+          "x": {
+            "field": "mean_happiness_score",
+            "type": "quantitative"
+          },
+          "color": {
+            "field": "region",
+            "type": "nominal",
+            "scale": {
+                "domain": ["North America and ANZ", "Western Europe", "Central and Eastern Europe", "Latin America and Caribbean", "East Asia", "Commonwealth of Independent States", "Southeast Asia", "Middle East and North Africa", "Sub-Saharan Africa", "South Asia"],
+                "range": ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"]
+            }
+        }
+        }
+      },
+      {
+        "mark": {
+            "type": "point",
+            "filled": true,
+            "opacity": 1,
+            "size": 100
+          },
+          "encoding": {
+            "y": {
+              "field": "region",
+              "type": "ordinal",
+              "sort": {"field": "mean_happiness_score", "order": "descending"},
+              "axis": {"title": null, "labelFontWeight": "bold", "labelFontSize": 12, "labelLimit": 220}
+            },
+            "x": {
+              "field": "mean_happiness_score",
+              "type": "quantitative",
+              "title": "Average Happiness Score"
+            },
+            "color": {
+                "field": "region",
+                "type": "nominal",
+                "legend":null,
+                "scale": {
+                    "domain": ["North America and ANZ", "Western Europe", "Central and Eastern Europe", "Latin America and Caribbean", "East Asia", "Commonwealth of Independent States", "Southeast Asia", "Middle East and North Africa", "Sub-Saharan Africa", "South Asia"],
+                    "range": ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"]
+                }
+            }
+        }
+      }
+    ]
+  }
+  

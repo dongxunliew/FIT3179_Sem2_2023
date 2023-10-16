@@ -1,9 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Happiness Score of each Country",
-    "fontSize": 20
-  },
   "width": 900,
   "height": 500,
   "params": [
@@ -17,9 +13,49 @@
               "step": 1,
               "name": "Year: "
           }
+      },
+      {
+        "name": "zoom",
+        "value": 1,
+        "bind": {
+          "input": "range",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "name": "Zoom: "
+        }
+      },
+      {
+        "name": "x_position",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": -180,
+          "max": 180,
+          "step": 1,
+          "name": "Longitude: "
+        }
+      },
+      {
+        "name": "y_position",
+        "value": 0,
+        "bind": {
+          "input": "range",
+          "min": -90,
+          "max": 90,
+          "step": 1,
+          "name": "Latitude: "
+        }
       }
   ],
-  "projection": {"type": "equalEarth"},
+  "projection": {
+    "type": "equalEarth",
+    "scale": {"signal": "zoom * 165"},
+    "translate": [
+      {"signal": "width / 2 + -x_position * zoom "},
+      {"signal": "height / 2 + y_position * zoom"}
+    ]
+  },
   "layer": [
 
       {

@@ -17,6 +17,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+    font-family: "Pacifico";
+    src: url("font/Pacifico-Regular.ttf");
+}
+  </style>
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -28,18 +34,32 @@
 
   <div class="page">
 
+    <!-- Title and description -->
     <!-- pure grid group -->
     <div class="pure-g">
       <div class="pure-u-1-1">
-        <h1>World Happiness Report</h1>
+        <h1 style="font-family: 'Pacifico', sans-serif; font-size: 60px;">World Happiness :)  </h1>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+            <b>Happiness</b> is a complex emotion. Thus, understanding the well-being and happiness of different countries is a vital
+            endeavour. <br>
+            Here, we take a look at the happiness score of countries, and how these scores affects other factors.
+          </p>
       </div>
     </div>
     <!-- end pure grid group -->
 
+    <!-- text for map -->
+        <!-- pure grid group -->
+        <div class="pure-g">
+          <div class="pure-u-1-1">
+              <h2>Happiness Score of Each Country</h2>
+            </div>
+
+        </div>
+        <!-- end pure grid group -->
+
+
+    <!-- Map -->
     <!-- pure grid group -->
     <div class="pure-g">
 
@@ -49,14 +69,45 @@
     </div>
     <!-- end pure grid group -->
 
+    <!-- Text for lollipoop -->
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h2> Which Continent has the Happiest Residents? </h2>
+        <p>
+          The chart below shows the average Happiness score of each continent, for the year 2023. <br>
+
+        </p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- lollipop -->
+    <!-- pure grid group -->
+    <div class="pure-g">
+
+      <div class="pure-u-1-1">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+    
+
+    <!-- Text for bumpchart -->
         <!-- pure grid group -->
         <div class="pure-g">
             <div class="pure-u-1-1">
-              <p>The chart below shows the top 10 happiest country for each year. (insert some findings here)</p>
+              <h2> Top 10 Happiest Countries</h2>
+              <p>
+                The chart below shows the top 10 happiest country for each year. <br>
+                <b>Hover</b> over the points to see the country's happiness score for that year. <br>
+
+              </p>
             </div>
           </div>
           <!-- end pure grid group -->
 
+    <!-- bumpchart -->
     <!-- pure grid group -->
     <div class="pure-g">
 
@@ -66,23 +117,49 @@
       </div>
       <!-- end pure grid group -->
 
+    <!-- Text for scatterplot -->
         <!-- pure grid group -->
     <div class="pure-g">
-        <div class="pure-u-1-3">
-          <div class="description description-left">
-            <h2>How does Happiness affect GDP?</h2>
+        <div class="pure-u-1-1">
+            <h2>How does Happiness affect ...</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+              It is generally believed that the happier a country is, the better the country is. But is this true? <br>
+              Here, we compare each countries' happiness score with many other various facotrs. <br>
+              The green dotted line represents the average happiness score of all countries, <br>
+              while the blue dotted line represents the average of the factor being compared. <br>
+              Click on the legend to filter the countries by region.
+             </p>
           </div>
-        </div>
-        <div class="pure-u-2-3">
-          <div id="vis3" class="vis-container"></div>
-        </div>
       </div>
       <!-- end pure grid group -->
 
+    <!-- scatterplot -->
+    <!-- pure grid group -->
+    <div class="pure-g">
+
+      <div class="pure-u-1-1">
+        <div id="vis5" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+        <!-- Explain for scatterplot -->
+        <!-- pure grid group -->
+        <div class="pure-g">
+          <div class="pure-u-1-1">
+              <p>
+                Generally, we can see that the happiness score of a country affects the other factors. <br>
+                For GDP per Capita, Social Support, Healthy Life Expectancy, and Freedom to make life choices,
+                they have a positive correlation with Happiness Score. <br>
+                However, it is interesting that the same could not be said for Generosity and Perception of Corruption. <br>
+
+               </p>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+
+
+        <!-- name and link -->
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
         <p>This visualisation is created by <a href="https://github.com/dongxunliew" target="_blank">Liew Dong Xun</a>. 
@@ -91,13 +168,13 @@
       </div>
     </div>
 
-
   </div> <!-- end page -->
 
   <script type="text/javascript">
     var specVis1 = "vis/map.vg.json";
     var specVis2 = "vis/bumpchart.vg.json";
-    var specVis3 = "vis/scatterplot.vg.json";
+    var specVis4 = "vis/lollipop.vg.json";
+    var specVis5 = "vis/multiple_scatterplot.vg.json"
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -105,7 +182,11 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false, renderer: 'svg'}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 

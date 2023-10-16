@@ -4,6 +4,8 @@
     "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/data/WHR_2023.csv"
     },
     "width": "container",
+    "height": 300,
+
     "layer": [
         {
             "selection": {
@@ -16,9 +18,9 @@
             "mark": "circle",
             "encoding": {
                 "x": {
-                "field": "gdp_per_capita",
+                "field": "healthy_life_expectancy",
                 "type": "quantitative",
-                "title": "GDP Per Capita"
+                "title": "Healthy Life Expectancy"
                 },
                 "y": {
                 "field": "happiness_score",
@@ -28,6 +30,10 @@
                 "color": {
                 "field": "region",
                 "type": "nominal",
+                "scale": {
+                    "domain": ["North America and ANZ", "Western Europe", "Central and Eastern Europe", "Latin America and Caribbean", "East Asia", "Commonwealth of Independent States", "Southeast Asia", "Middle East and North Africa", "Sub-Saharan Africa", "South Asia"],
+                    "range": ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"]
+                },
                 "title": "Region"
                 },
                 "opacity": {
@@ -38,7 +44,7 @@
                     {"field": "country", "type": "nominal", "title": "Country"},
                     {"field": "region", "type": "nominal", "title": "Region"},
                     {"field": "happiness_score", "type": "quantitative", "title": "Happiness Score"},
-                    {"field": "gdp_per_capita", "type": "quantitative", "title": "GDP Per Capita"}
+                    {"field": "healthy_life_expectancy", "type": "quantitative", "title": "Healthy Life Expectancy"}
                 ]
             }
         },
@@ -51,7 +57,7 @@
             "encoding": {
                 "x": {
                     "aggregate": "mean",
-                    "field": "gdp_per_capita",
+                    "field": "healthy_life_expectancy",
                     "type": "quantitative"
                     }
             }

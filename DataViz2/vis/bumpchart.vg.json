@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
+    "width": 900,
     "height": 500,
     "data": {
       "url": "https://raw.githubusercontent.com/dongxunliew/FIT3179_Sem2_2023/main/DataViz2/data/happiness_2015_2023.csv"
@@ -19,17 +19,28 @@
     ],
     "mark": {
       "type": "line",
-      "point": {"size": 150}
+      "point": {"size": 150},
+      "interpolate":"monotone"
     },
     "encoding": {
       "x": {"field": "year", "type": "ordinal", "axis": {"labelAngle": 0} },
       "y": {"field": "rank", "type": "quantitative", "sort": "descending"},
-      "color": {"field": "country", "type": "nominal"},
+      "color": {
+        "field": "country",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Australia", "Austria", "Canada", "Denmark", "Finland", "Iceland", "Israel", "Luxembourg", "Netherlands", "New Zealand", "Norway", "Sweden", "Switzerland"],
+          "range": ["#000080", "#8B0000", "#008000", "#FFD700", "#DC143C", "#20B2AA", "#FF4500", "#2E8B57", "#ADFF2F", "#FF00FF", "#1E90FF", "#D2691E", "#808080"]
+
+        }
+
+      },
       "detail": {"field": "country", "type": "nominal"},
       "tooltip": [
-        {"field": "country", "type": "nominal"},
-        {"field": "happiness_score", "type": "quantitative"}
+        {"field": "country", "type": "nominal", "title": "Country"},
+        {"field": "happiness_score", "type": "quantitative", "format": ".2f", "title": "Happiness Score"}
       ]
+
     }
   }
   
