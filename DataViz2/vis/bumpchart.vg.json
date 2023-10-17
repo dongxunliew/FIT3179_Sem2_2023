@@ -17,30 +17,68 @@
         "filter": "(datum.rank <= 10)"
       }
     ],
-    "mark": {
-      "type": "line",
-      "point": {"size": 150},
-      "interpolate":"monotone"
-    },
-    "encoding": {
-      "x": {"field": "year", "type": "ordinal", "axis": {"labelAngle": 0} },
-      "y": {"field": "rank", "type": "quantitative", "sort": "descending"},
-      "color": {
-        "field": "country",
-        "type": "nominal",
-        "scale": {
-          "domain": ["Australia", "Austria", "Canada", "Denmark", "Finland", "Iceland", "Israel", "Luxembourg", "Netherlands", "New Zealand", "Norway", "Sweden", "Switzerland"],
-          "range": ["#000080", "#8B0000", "#008000", "#FFD700", "#DC143C", "#20B2AA", "#FF4500", "#2E8B57", "#ADFF2F", "#FF00FF", "#1E90FF", "#D2691E", "#808080"]
-
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "point": {"size": 150},
+          "interpolate":"monotone"
+        },
+        "encoding": {
+          "x": {"field": "year", "type": "ordinal", "axis": {"labelAngle": 0} },
+          "y": {"field": "rank", "type": "quantitative", "sort": "descending"},
+          "color": {
+            "field": "country",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Australia", "Austria", "Canada", "Denmark", "Finland", "Iceland", "Israel", "Luxembourg", "Netherlands", "New Zealand", "Norway", "Sweden", "Switzerland"],
+              "range": ["#000080", "#8B0000", "#008000", "#FFD700", "#DC143C", "#20B2AA", "#FF4500", "#2E8B57", "#ADFF2F", "#FF00FF", "#1E90FF", "#D2691E", "#808080"]
+    
+            }
+    
+          },
+          "detail": {"field": "country", "type": "nominal"},
+          "tooltip": [
+            {"field": "country", "type": "nominal", "title": "Country"},
+            {"field": "happiness_score", "type": "quantitative", "format": ".2f", "title": "Happiness Score"}
+          ]
+    
         }
-
       },
-      "detail": {"field": "country", "type": "nominal"},
-      "tooltip": [
-        {"field": "country", "type": "nominal", "title": "Country"},
-        {"field": "happiness_score", "type": "quantitative", "format": ".2f", "title": "Happiness Score"}
-      ]
+      {
+        "mark": {
+            "type": "text",
+            "x": 700,
+            "y": 15,
+            "color": "grey"
+        },
+        "encoding": {
+            "text": {
+                "value": [
+                  "Finland has been the number one happiest country",
+                          "in the world for 6 consecutive years."
+                 ]
+            }
+        }
+    },
+    {
+      "mark": {
+          "type": "text",
+          "x": 800,
+          "y": 470,
+          "color": "grey"
+      },
+      "encoding": {
+          "text": {
+              "value": [
+                "Israel has the highest jump in rank from",
+                 "2022 to 2023, from 9th to 4th."
+               ]
+          }
+      }
+  }
+    
+    ]
 
-    }
   }
   

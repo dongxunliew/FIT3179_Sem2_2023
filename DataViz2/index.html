@@ -125,8 +125,8 @@
             <p>
               It is generally believed that the happier a country is, the better the country is. But is this true? <br>
               Here, we compare each countries' happiness score with many other various facotrs. <br>
-              The green dotted line represents the average happiness score of all countries, <br>
-              while the blue dotted line represents the average of the factor being compared. <br>
+              The <span style="color: green;">green</span> dotted line represents the average happiness score of all countries, <br>
+              while the <span style="color: blue;">blue</span> dotted line represents the average of the factor being compared. <br>
               Click on the legend to filter the countries by region.
              </p>
           </div>
@@ -176,13 +176,13 @@
     var specVis4 = "vis/lollipop.vg.json";
     var specVis5 = "vis/multiple_scatterplot.vg.json"
 
-    vegaEmbed('#vis1', specVis1, { "actions": false });
+    vegaEmbed('#vis1', specVis1, { "actions": false, renderer: 'svg'});
 
-    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis2', specVis2, { "actions": false, renderer: 'svg'}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis4', specVis4, { "actions": false, renderer: 'svg'}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 

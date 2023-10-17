@@ -62,7 +62,11 @@
                     "domain": ["North America and ANZ", "Western Europe", "Central and Eastern Europe", "Latin America and Caribbean", "East Asia", "Commonwealth of Independent States", "Southeast Asia", "Middle East and North Africa", "Sub-Saharan Africa", "South Asia"],
                     "range": ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f", "#edc948", "#b07aa1", "#ff9da7", "#9c755f", "#bab0ac"]
                 }
-            }
+            },
+            "tooltip": [
+                {"field": "region", "type": "nominal", "title": "Region"},
+                {"field": "mean_happiness_score", "type": "quantitative", "title": "Average Happiness Score"}
+            ]
         }
       }
     ]
